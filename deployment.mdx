@@ -1,23 +1,24 @@
 ---
-title: Deployment Notes
-description: Infrastructure and environment setup
+title: Deployment
+description: Infrastructure setup
 ---
 
-# Deployment Notes
+# Deployment
 
-**Frontend:** Vercel (branch beta)  
-**Backend:** AWS EC2 + PM2 + Nginx  
+**Frontend:** Vercel  
+**Backend:** AWS EC2 + PM2  
 **Database:** RDS Postgres 16  
-**CI/CD:** GitHub Actions → auto-deploy on push to main  
+**CI/CD:** GitHub Actions  
 **Secrets:** AWS Secrets Manager  
-**Monitoring:** Grafana Cloud + Loki + Sentry
+**Monitoring:** Grafana + Sentry
 
 ## Environment Variables
+
 ```bash
-HIP3_RPC=https://rpc.hyperliquid.net  
+HIP3_RPC=https://rpc.hyperliquid.xyz
 POSTGRES_URL=…  
 API_KEY=…  
-ORACLE_FEED_URL=https://oracle.hyperleverage.app  
+ORACLE_FEED_URL=https://oracle.hyperleverage.app
 ```
 
-Halts trigger alerts to Discord Ops and SMS.
+Auto-deploy on push to main. System halts trigger Discord alerts + SMS to ops.
