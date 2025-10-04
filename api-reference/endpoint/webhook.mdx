@@ -1,4 +1,43 @@
 ---
-title: 'New Plant'
-openapi: 'WEBHOOK /plant/webhook'
+title: 'Get Markets'
+api: 'GET /markets'
 ---
+
+Get list of all active perpetual markets.
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "symbol": "BTC-PERP",
+      "markPrice": "50000",
+      "indexPrice": "49995",
+      "fundingRate": "0.0001",
+      "openInterest": "1500000",
+      "volume24h": "5000000",
+      "maxLeverage": "25x"
+    },
+    {
+      "symbol": "ETH-PERP",
+      "markPrice": "3000",
+      "indexPrice": "2998",
+      "fundingRate": "0.00005",
+      "openInterest": "800000",
+      "volume24h": "2000000",
+      "maxLeverage": "25x"
+    }
+  ]
+}
+```
+
+**Fields:**
+- `symbol` - Market identifier
+- `markPrice` - Current mark price
+- `indexPrice` - Spot index price
+- `fundingRate` - Current funding rate
+- `openInterest` - Total open interest (USD)
+- `volume24h` - 24h trading volume (USD)
+- `maxLeverage` - Maximum allowed leverage
