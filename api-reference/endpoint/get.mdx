@@ -1,4 +1,36 @@
 ---
-title: 'Get Plants'
-openapi: 'GET /plants'
+title: 'Get Positions'
+api: 'GET /positions'
 ---
+
+Get all open positions for the authenticated account.
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "symbol": "BTC-PERP",
+      "side": "long",
+      "size": "0.5",
+      "entryPrice": "48000",
+      "markPrice": "50000",
+      "pnl": "1000",
+      "margin": "2400",
+      "leverage": "20x"
+    }
+  ]
+}
+```
+
+**Fields:**
+- `symbol` - Market identifier
+- `side` - "long" or "short"
+- `size` - Position size
+- `entryPrice` - Average entry price
+- `markPrice` - Current mark price
+- `pnl` - Unrealized profit/loss
+- `margin` - Margin allocated
+- `leverage` - Current leverage
