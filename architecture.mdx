@@ -1,23 +1,37 @@
 ---
-title: System Architecture
-description: Tech stack and data flow overview
+title: Architecture
+description: How the system works
 ---
 
-# System Overview
+# Architecture
 
-**Frontend:**  Next.js (React 18 + Tailwind)  
-**Backend:**   Node.js + Fastify (REST + WebSocket)  
-**Database:**  PostgreSQL 16  
+**Frontend:**  Next.js + Tailwind  
+**Backend:**   Node.js + Fastify  
+**Database:**  Postgres 16  
 **Cache:**     Redis  
-**Monitoring:** Grafana + Loki + Sentry  
-**Hosting:**   Vercel (frontend) + AWS EC2 (API)
+**Monitoring:** Grafana, Loki, Sentry  
+**Deploy:**    Vercel (frontend), AWS (API)
 
-## Data Flow
+## How it works
+
 ```
-Trader → Frontend (order form) → API Gateway  
-→ HIP-3 Router → Builder DEX (staked deployer)  
-→ Oracle Service → Postgres (indexer) → Charts / PnL
+User → Frontend → API Gateway  
+→ HIP-3 Router → Deployed Market (500k HYPE stake)  
+→ Oracle Feed → Postgres → Charts/PnL
 ```
 
-All data streams live through HIP-3 feeds.  
-No third-party APIs or off-chain dependencies.
+Everything runs through HIP-3. No third-party APIs, no off-chain dependencies.
+
+## Key Components
+
+**HIP-3 Router:** Routes orders to builder-deployed markets  
+**Oracle Service:** Pulls price feeds from Hyperliquid validators  
+**Risk Engine:** Monitors positions, triggers liquidations  
+**Indexer:** Logs trades, funding, PnL to Postgres
+
+## RPC Endpoints
+
+**Mainnet:** `https://rpc.hyperliquid.xyz`  
+**Testnet:** `https://testnet.hyperliquid.xyz`
+
+All market data flows through these endpoints. No external dependencies.
