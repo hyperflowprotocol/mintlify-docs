@@ -22,9 +22,18 @@
             ]
           },
           {
+            "group": "API Reference",
+            "pages": [
+              "api-reference/introduction",
+              "api-reference/endpoint/create",
+              "api-reference/endpoint/get",
+              "api-reference/endpoint/delete",
+              "api-reference/endpoint/webhook"
+            ]
+          },
+          {
             "group": "Technical",
             "pages": [
-              "api-reference",
               "deployment"
             ]
           },
