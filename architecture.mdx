@@ -14,11 +14,7 @@ description: How the system works
 
 ## How it works
 
-```
-User → Frontend → API Gateway  
-→ HIP-3 Router → Deployed Market (500k HYPE stake)  
-→ Oracle Feed → Postgres → Charts/PnL
-```
+User places order through frontend, hits our API gateway, routes through HIP-3 to the deployed market (backed by our 500k HYPE stake). Oracle feeds price data, everything logs to Postgres for charts and PnL tracking.
 
 Everything runs through HIP-3. No third-party APIs, no off-chain dependencies.
 
