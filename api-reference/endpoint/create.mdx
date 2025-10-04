@@ -1,4 +1,38 @@
 ---
-title: 'Create Plant'
-openapi: 'POST /plants'
+title: 'Place Order'
+api: 'POST /order'
 ---
+
+Place a new order on the perpetual market.
+
+## Request Body
+
+```json
+{
+  "symbol": "BTC-PERP",
+  "side": "buy",
+  "size": "0.1",
+  "price": "50000",
+  "type": "limit"
+}
+```
+
+**Parameters:**
+- `symbol` (required) - Market symbol (BTC-PERP, ETH-PERP, HYPE-PERP)
+- `side` (required) - "buy" or "sell"
+- `size` (required) - Order size in base asset
+- `price` (optional) - Limit price (omit for market orders)
+- `type` (required) - "limit" or "market"
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": {
+    "orderId": "abc123",
+    "status": "filled",
+    "fillPrice": "50000"
+  }
+}
+```
