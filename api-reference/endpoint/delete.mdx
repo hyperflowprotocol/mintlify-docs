@@ -1,4 +1,32 @@
 ---
-title: 'Delete Plant'
-openapi: 'DELETE /plants/{id}'
+title: 'Cancel Order'
+api: 'DELETE /order/{id}'
 ---
+
+Cancel an open order by order ID.
+
+## Path Parameters
+
+- `id` (required) - Order ID to cancel
+
+## Response
+
+```json
+{
+  "success": true,
+  "data": {
+    "orderId": "abc123",
+    "status": "cancelled"
+  }
+}
+```
+
+## Error Response
+
+```json
+{
+  "success": false,
+  "error": "Order not found or already filled",
+  "code": "ORDER_NOT_FOUND"
+}
+```
