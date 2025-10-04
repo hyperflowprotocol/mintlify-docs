@@ -1,0 +1,19 @@
+---
+title: Oracle & Risk Policy
+description: Risk management and oracle configuration
+---
+
+# Oracle & Risk Policy
+
+**Primary Oracle:** Hyperliquid Index  
+**Fallback:** Chainlink + internal aggregator  
+**Deviation Limit:** ± 0.5 % → auto-halt  
+**Funding Interval:** 1 hour  
+**Funding Cap:** 50 bps per hour
+
+Slashing Risk: the builder's stake may be burned for bad oracle data or uptime below 98 %.  
+Auto-halt settles positions at mark price to prevent cascading liquidations.
+
+**Margin Mode:** Isolated  
+**Max Leverage:** 25× (BTC/ETH) · 10× (HYPE)  
+**Open Interest Cap:** ≈ 2 M USD per market

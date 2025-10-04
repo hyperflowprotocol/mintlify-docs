@@ -1,0 +1,25 @@
+---
+title: API Reference
+description: REST API endpoints
+---
+
+# API Reference
+
+**Base URL:** https://api.hyperleverage.app
+
+## Public
+`GET /markets` — active HIP-3 markets  
+`GET /funding` — current + next funding rate  
+`GET /orderbook?symbol=BTC-PERP` — depth + recent trades
+
+## Authenticated
+`POST /order`  { symbol, side, size, price?, type }  
+`DELETE /order/:id`  
+`GET /positions`  
+`GET /fills`
+
+## Operator
+`POST /admin/halt`  
+`POST /admin/resume`  
+`POST /admin/listing`  
+`POST /admin/params`

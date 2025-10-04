@@ -1,0 +1,23 @@
+---
+title: System Architecture
+description: Tech stack and data flow overview
+---
+
+# System Overview
+
+**Frontend:**  Next.js (React 18 + Tailwind)  
+**Backend:**   Node.js + Fastify (REST + WebSocket)  
+**Database:**  PostgreSQL 16  
+**Cache:**     Redis  
+**Monitoring:** Grafana + Loki + Sentry  
+**Hosting:**   Vercel (frontend) + AWS EC2 (API)
+
+## Data Flow
+```
+Trader → Frontend (order form) → API Gateway  
+→ HIP-3 Router → Builder DEX (staked deployer)  
+→ Oracle Service → Postgres (indexer) → Charts / PnL
+```
+
+All data streams live through HIP-3 feeds.  
+No third-party APIs or off-chain dependencies.
